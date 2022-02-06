@@ -32,8 +32,9 @@ public class Level : MonoBehaviour
             Instantiate(prefab,
                 new Vector3(
                     Random.Range(-spawnRadius, spawnRadius), 
-                    0,
-                    Random.Range(-spawnRadius, spawnRadius)), 
+                    Random.Range(-spawnRadius, spawnRadius),
+                    0
+                   ), 
                 Quaternion.identity);
         }
     }
