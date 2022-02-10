@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Level : MonoBehaviour
 {
@@ -24,8 +26,8 @@ public class Level : MonoBehaviour
         Spawn(memberPrefab, numberOfMembers);
         Spawn(enemyPrefab, numberOfEnemies);
         
-        members.AddRange(FindObjectOfType<Member>());
-        members.AddRange(FindObjectOfType<Enemy>());
+        members.AddRange(FindObjectsOfType<Member>());
+        enemies.AddRange(FindObjectsOfType<Enemy>());
     }
 
     private void Spawn(Transform prefab, int count)

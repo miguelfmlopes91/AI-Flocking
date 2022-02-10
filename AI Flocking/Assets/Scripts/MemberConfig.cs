@@ -9,10 +9,10 @@ public class MemberConfig : MonoBehaviour
     public float maxVelocity;
 
     [Header("Wonder variables")] 
-    public float wonderJitter;
-    public float wonderRadius;
-    public float wonderDistqance;
-    public float wonderPriority;
+    public float wanderJitter;
+    public float wanderRadius;
+    public float wanderDistance;
+    public float wanderPriority;
     
     [Header("Cohesion variables")]
     public float cohesionRadius;
@@ -29,17 +29,4 @@ public class MemberConfig : MonoBehaviour
     [Header("Avoidance variables")]
     public float avoidanceRadius;
     public float avoidancePriority;
-    
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

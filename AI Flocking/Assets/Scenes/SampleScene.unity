@@ -216,6 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1934175029}
   - component: {fileID: 1934175028}
+  - component: {fileID: 1934175030}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -235,8 +236,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4ae13ce615db4f9a87edd9d6b1288f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  memberPrefab: {fileID: 203957188044490934, guid: 1d609ea35ccefc741a890f4d4dd1ec08, type: 3}
-  enemyPrefab: {fileID: 3586292485834905353, guid: 3ccac1c6ade81a64d894ff4f6e309bf8, type: 3}
+  memberPrefab: {fileID: 8926992364857349755, guid: 7f976aa0949dc46c0b8b3b1fea4d9da0, type: 3}
+  enemyPrefab: {fileID: 1022033650406605393, guid: be6331b76f64948119e2c3b26abf84eb, type: 3}
   numberOfMembers: 200
   numberOfEnemies: 5
   members: []
@@ -257,3 +258,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1934175030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934175027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d61a65ae0e674b7fb4243f80cfa31c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxFOV: 120
+  maxAcceleration: 40
+  maxVelocity: 25
+  wanderJitter: 10
+  wanderRadius: 2
+  wanderDistance: 3
+  wanderPriority: 10
+  cohesionRadius: 20
+  cohesionPriority: 60
+  alignmentRadius: 10
+  alignmentPriority: 90
+  separationRadius: 0
+  separationPriority: 0
+  avoidanceRadius: 0
+  avoidancePriority: 0
