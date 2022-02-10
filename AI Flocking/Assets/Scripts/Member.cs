@@ -89,7 +89,9 @@ public class Member : MonoBehaviour
 
     virtual protected Vector3 Combine()
     {
-        return memConfig.cohesionPriority * Cohesion() + memConfig.wanderPriority * Wander();;
+        return memConfig.cohesionPriority * Cohesion() 
+               + memConfig.wanderPriority * Wander() 
+               + memConfig.alignmentPriority * Alignment();
     }
 
     private void WrapAround(ref Vector3 vector, float min, float max)
