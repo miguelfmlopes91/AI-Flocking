@@ -62,7 +62,27 @@ public class Member : MonoBehaviour
         return alignVector.normalized;
     }
 
-    Vector3 Cohesion()
+    private Vector3 Separation()
+    {
+        Vector3 separateVec = new Vector3();
+        var members = level.GetNeighbours(this, memConfig.separationRadius);
+        if (members.Count == 0) return separateVec;
+
+        foreach (var member in members)
+        {
+            if (IsInFOV(member.position))
+            {
+                Vector3 movingTowards = position - member.position;
+                if (movingTowards.magnitude > 0)
+                {
+                    separateVec += movingTowards.normalized / movingTowards.magnitude;
+                }
+            }
+        }
+        return separateVec.normalized;
+    }
+    
+    private Vector3 Cohesion()
     {
         Vector3 cohesionVector = new Vector3();
         int countMembers = 0;
@@ -91,7 +111,8 @@ public class Member : MonoBehaviour
     {
         return memConfig.cohesionPriority * Cohesion() 
                + memConfig.wanderPriority * Wander() 
-               + memConfig.alignmentPriority * Alignment();
+               + memConfig.alignmentPriority * Alignment()
+               + memConfig.separationPriority * Separation();
     }
 
     private void WrapAround(ref Vector3 vector, float min, float max)
