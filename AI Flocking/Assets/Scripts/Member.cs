@@ -8,8 +8,8 @@ public class Member : MonoBehaviour
     public Vector3 velocity;
     public Vector3 acceleration;
 
-    public Level level;
-    public MemberConfig memConfig;
+    [HideInInspector]public Level level;
+    [HideInInspector]public MemberConfig memConfig;
 
     private Vector3 wanderTarget;
     
@@ -42,9 +42,9 @@ public class Member : MonoBehaviour
         wanderTarget = wanderTarget.normalized;
         wanderTarget *= memConfig.wanderRadius;
 
-        Vector3 targetInLocalSpace = wanderTarget + new Vector3(0, memConfig.wanderDistance, 0);
+        Vector3 targetInLocalSpace = wanderTarget + new Vector3(memConfig.wanderDistance, memConfig.wanderDistance, 0);
         Vector3 targetInWorldSpace = transform.TransformPoint(targetInLocalSpace);
-        targetInWorldSpace -= this.position;
+        targetInWorldSpace -= position;
         return targetInWorldSpace.normalized;
     }
 
@@ -107,12 +107,33 @@ public class Member : MonoBehaviour
         return cohesionVector;
     }
 
+    private Vector3 Avoidance()
+    {
+        var avoidVector = new Vector3();
+        var enemyList = level.GetEnemies(this, memConfig.avoidanceRadius);
+        if (enemyList.Count == 0) return avoidVector;
+
+        foreach (var enemy in enemyList)
+        {
+            avoidVector += RunAway(enemy.position);
+        }
+
+        return avoidVector.normalized;
+    }
+
+    private Vector3 RunAway(Vector3 target)
+    {
+        Vector3 neededVelocity = (position - target).normalized * memConfig.maxVelocity;
+        return neededVelocity - velocity;
+    }
+
     virtual protected Vector3 Combine()
     {
         return memConfig.cohesionPriority * Cohesion() 
                + memConfig.wanderPriority * Wander() 
                + memConfig.alignmentPriority * Alignment()
-               + memConfig.separationPriority * Separation();
+               + memConfig.separationPriority * Separation()
+               + memConfig.avoidancePriority * Avoidance();
     }
 
     private void WrapAround(ref Vector3 vector, float min, float max)

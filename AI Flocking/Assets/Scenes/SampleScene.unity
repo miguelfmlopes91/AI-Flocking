@@ -281,7 +281,7 @@ MonoBehaviour:
   cohesionPriority: 60
   alignmentRadius: 10
   alignmentPriority: 90
-  separationRadius: 10
+  separationRadius: 6
   separationPriority: 90
-  avoidanceRadius: 0
-  avoidancePriority: 0
+  avoidanceRadius: 40
+  avoidancePriority: 700
