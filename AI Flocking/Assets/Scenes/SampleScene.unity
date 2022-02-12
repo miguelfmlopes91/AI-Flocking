@@ -159,7 +159,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.3448736, g: 0.4716981, b: 0.350431, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -236,8 +236,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4ae13ce615db4f9a87edd9d6b1288f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  memberPrefab: {fileID: 8926992364857349755, guid: 7f976aa0949dc46c0b8b3b1fea4d9da0, type: 3}
-  enemyPrefab: {fileID: 1022033650406605393, guid: be6331b76f64948119e2c3b26abf84eb, type: 3}
+  memberPrefab: {fileID: 203957188044490934, guid: 1d609ea35ccefc741a890f4d4dd1ec08, type: 3}
+  enemyPrefab: {fileID: 3586292485834905353, guid: 3ccac1c6ade81a64d894ff4f6e309bf8, type: 3}
   numberOfMembers: 200
   numberOfEnemies: 5
   members: []
